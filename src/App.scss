@@ -1,5 +1,16 @@
+$bue-color : #566CD6;
+$text-color : #40415E;
+
 .App {
   text-align: center;
+}
+
+.user-pokemon{
+  background: $bue-color;
+}
+
+.all-pokemon {
+  background: linear-gradient(90deg, rgba(242,244,255,1) 0%, rgba(251,252,255,1) 100%);
 }
 
 .App-logo {
@@ -26,13 +37,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
