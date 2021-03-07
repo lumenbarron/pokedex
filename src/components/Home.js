@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import CardPokemon from "./CardPokemons";
-
+import UserProfile from "./UserProfile";
+import iconSearch from "../Assets/Icons/Search.svg";
 //import {useDispatch, useSelector} from 'react-redux';
 //import {getTodoAction} from '../redux/todoDucks';
 import swal from "sweetalert2";
@@ -45,17 +46,13 @@ export default function Home() {
           setAllPokemons((currentPokemon) =>
             [...currentPokemon, res.data].sort((a, b) => a.id - b.id)
           );
-
           setReady(true);
-          //createOptions()
         });
     });
   };
 
   const selectPokemon = (event) => {
     event.preventDefault();
-    console.log("holi");
-    //console.log(event.target.value)
     console.log(event.target.value);
     let name = event.target.value;
     console.log(allPokemons);
@@ -76,12 +73,15 @@ export default function Home() {
       <Container fluid>
         <Row>
           <Col className="user-pokemon" lg={3}>
-            Home
+            <UserProfile/>
           </Col>
           <Col className="all-pokemon" lg={9}>
-            Home
+          <Row className="container-search m-0 pb-5">
             <form onChange={(event) => selectPokemon(event)}>
-              <input list="browsers" name="browser" />
+              <div className="container-search">
+              <input list="browsers" className="inp-search" placeholder="Search" name="browser" />
+              <div className="btn-search">  <img src={iconSearch} alt="iconSearch" className="img-search"/></div>
+              </div>
               <datalist id="browsers">
                 {allPokemons.map((pokemon) => (
                   <option value={pokemon.name}>
@@ -89,8 +89,10 @@ export default function Home() {
                   </option>
                 ))}
               </datalist>
-              <button onClick={(event) => selectPokemon(event)}>BUscar</button>
+              {/* <button onClick={(event) => selectPokemon(event)}>BUscar</button> */}
             </form>
+            </Row>
+            <Row>
             {readyEachPoke ? (
               <CardPokemon
                 key={eachPokemon[0].id}
@@ -108,9 +110,12 @@ export default function Home() {
               ""
             )}
             {pokeError && <h1>el pokemon que buscas no existe</h1>}
+            </Row>
+            <Row className="m-0">
             {ready ? (
               allPokemons.map((pokemonStats, index) => (
-                // console.log(pokemonStats.types[0])
+                // <div className="m-3">
+                <Col lg={4}>
                 <CardPokemon
                   key={index}
                   id={pokemonStats.id}
@@ -121,10 +126,13 @@ export default function Home() {
                     pokemonStats.types[1] ? pokemonStats.types[1].type.name : ""
                   }
                 />
+                </Col>
+                // </div>
               ))
             ) : (
               <h1 className="">Loading...</h1>
             )}
+            </Row>
           </Col>
         </Row>
       </Container>

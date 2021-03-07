@@ -1,25 +1,29 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 
-const CardPokemon = ({id, image, name, type, type2,_callback }) => {
-    const style = type;
-    return (
-        <div>
-            <div className="number"><small>#0{id}</small></div>
-            <img src={image} alt={name} />
-            <div className="detail-wrapper">
-            <Link
-                className="btn waves-effect waves-light red accent-2 z-depth-0"
-                to={"/" + id}
-              >
-               <h3>{name}</h3>
-              </Link>
-                
-                <small>{type}</small>
-                <small>{type2}</small>
-            </div>
-        </div>
-    )
-}
+const CardPokemon = ({ id, image, name, type, type2, _callback }) => {
+  return (
+      <div className="container-card-pokemon">
+    <div className="card-all-pokemon">
+      <Link
+        className="title-card-pokemon"
+        to={"/" + id}
+      >
+        <h3>{name}</h3>
+      </Link>
+      <p className="number-card-pokemon pb-4" >00{id}</p>
 
-export default CardPokemon
+      <div className="number">
+      <img src={image} alt={name} className="img-pokemon"/>
+      </div>
+ 
+      <div className="container-type">
+        <div className="type-pokemon">{type}</div>
+        <div  className="type-pokemon">{type2}</div>
+      </div>
+    </div>
+    </div>
+  );
+};
+
+export default CardPokemon;
