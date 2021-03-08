@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link  } from "react-router-dom";
+import FullCardPokemon from "./FullCardPokemon";
 
 export default function Pokemon() {
   const { id } = useParams();
@@ -42,32 +42,20 @@ export default function Pokemon() {
           <h3>back</h3>
         </Link>
         {ready ? (
-          <Row>
-            <Col>
-              <img
-                src={pokemon.sprites.other.dream_world.front_default}
-                alt={pokemon.name}
-              />
-              <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
-              <img src={pokemon.sprites.back_shiny} alt={pokemon.name} />
-            </Col>
-            <Col>
-              {pokemon.name}
-              <p>{pokemon.types[0].type.name}</p>
-              <p>{pokemonType2}</p>
-              <h3>Pokedex Number</h3>
-              <p>{pokemon.id}</p>
-              <h3>Height</h3>
-              <p>{pokemon.height}</p>
-              <h3>Weight</h3>
-              <p>{pokemon.weight}</p>
-              <h3>Shiny</h3>
-              <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
-              <img src={pokemon.sprites.back_shiny} alt={pokemon.name} />
-            </Col>
-          </Row>
+          <FullCardPokemon
+            key={pokemon.id}
+            id={pokemon.id}
+            image={pokemon.sprites.other.dream_world.front_default}
+            shiny1={pokemon.sprites.front_shiny}
+            shiny2={pokemon.sprites.back_shiny}
+            name={pokemon.name}
+            type1={pokemon.types[0].type.name}
+            type2={pokemon.types[1] ? pokemon.types[1].type.name : ""}
+            height={pokemon.height}
+            weight={pokemon.weight}
+          />
         ) : (
-          <h1 className="">Loading...</h1>
+          <h1>...</h1>
         )}
       </Container>
     </div>
