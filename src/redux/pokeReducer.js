@@ -140,4 +140,3 @@ export const getEachPokemonsAction = (id) => async (dispatch) => {
     console.log(error);
   }
 };
-

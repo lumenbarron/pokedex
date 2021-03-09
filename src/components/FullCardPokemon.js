@@ -30,7 +30,7 @@ export default function FullCardPokemon({
       </Col>
       <Col lg={8}>
       <div className="card-each-pokemon">
-        <h1>{name}</h1>
+        <h1 className="capitalize-text">{name}</h1>
         <div className="container-type-each-pokemon">
         <div className={`type-pokemon mr-1 ${type1}`} >{type1}</div>
        {type2 && <div  className={`type-pokemon ml-1 ${type2}`}>{type2}</div>} 

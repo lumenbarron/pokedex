@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { useParams, Link  } from "react-router-dom";
 import FullCardPokemon from "./FullCardPokemon";
+import iconBack from "../Assets/Icons/Back.svg";
+import {getEachPokemonsAction} from '../redux/pokeReducer';
+import {useDispatch, useSelector} from 'react-redux';
 
 export default function Pokemon() {
   const { id } = useParams();
@@ -11,9 +14,16 @@ export default function Pokemon() {
   const [pokemonType2, setPokemonType2] = useState([]);
   const [ready, setReady] = useState(false);
 
+  const dispatch = useDispatch()
+  const pokemons = useSelector( store => store.pokemons.currentPoke);
+  console.log(Object.keys(pokemons).length ,pokemons);
   console.log(id);
+  // useEffect(() => {
+  //   getPokemon();
+  // }, []);
+
   useEffect(() => {
-    getPokemon();
+    dispatch(getEachPokemonsAction(id));
   }, []);
 
   const getPokemon = async () => {
@@ -33,31 +43,33 @@ export default function Pokemon() {
       });
   };
   return (
-    <div>
+    
       <Container>
+        <Row className="mx-0 mb-3">
         <Link
-          className="btn waves-effect waves-light red accent-2 z-depth-0"
+          className="btn-icon"
           to={"/"}
         >
-          <h3>back</h3>
+          <img src={iconBack} alt="icon-back" className="img-search" />
         </Link>
-        {ready ? (
+        </Row>
+        {Object.keys(pokemons).length > 1 ? (
           <FullCardPokemon
-            key={pokemon.id}
-            id={pokemon.id}
-            image={pokemon.sprites.other.dream_world.front_default}
-            shiny1={pokemon.sprites.front_shiny}
-            shiny2={pokemon.sprites.back_shiny}
-            name={pokemon.name}
-            type1={pokemon.types[0].type.name}
-            type2={pokemon.types[1] ? pokemon.types[1].type.name : ""}
-            height={pokemon.height}
-            weight={pokemon.weight}
+            key={pokemons.id}
+            id={pokemons.id}
+            image={pokemons.sprites.other.dream_world.front_default}
+            shiny1={pokemons.sprites.front_shiny}
+            shiny2={pokemons.sprites.back_shiny}
+            name={pokemons.name}
+            type1={pokemons.types[0].type.name}
+            type2={pokemons.types[1] ? pokemons.types[1].type.name : ""}
+            height={pokemons.height}
+            weight={pokemons.weight}
           />
         ) : (
           <h1>...</h1>
         )}
       </Container>
-    </div>
+    
   );
 }
