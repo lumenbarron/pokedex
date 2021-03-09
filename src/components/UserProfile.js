@@ -7,7 +7,11 @@ export default function UserProfile() {
   return (
     <div className="user-pokemon">
       <img className="logo-pokemon my-5" alt="logo-pokemon" src={logoPokemon} />
-      <img className="user-img-pokemon mb-4" alt="user-pokemon" src={userPokemon} />
+      <img
+        className="user-img-pokemon mb-4"
+        alt="user-pokemon"
+        src={userPokemon}
+      />
       <h4 className="user-title-pokemon">ASHK123</h4>
       <p className="user-subtitle-pokemon">Level 1</p>
       <p className="user-title-pokemon">"Work hard on your test"</p>

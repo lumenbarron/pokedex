@@ -117,7 +117,6 @@ export const getPrevPokemonsAction = () => async (dispatch, getState) => {
         return pokemonRecord.data;
       })
     );
-    console.log(pokemonData);
     dispatch({
       type: GET_PREV_POKEMONS,
       payload: pokemonData,
