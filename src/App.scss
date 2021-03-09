@@ -42,7 +42,6 @@ $text-color : #40415E;
 }
 
 @mixin btnColor( $width){
-  //background-color: $color;
   height: 2rem;
   width: $width;
   border-radius: 1rem;
@@ -52,6 +51,7 @@ $text-color : #40415E;
 //User Pokemon
 .container-user-pokemon{
   background: $blue-color;
+  width: 30%
 }
 .user-pokemon{
   @include flexDirection(column);
@@ -94,6 +94,12 @@ $text-color : #40415E;
   left: 10%;
 }
 
+
+.img-btn-menu{
+  position: absolute;
+  left: 5%;
+}
+
 //Search input
 .container-search{
   @include flexJusttify(flex-end);
@@ -128,6 +134,7 @@ $text-color : #40415E;
   overflow: scroll;
   height: 100vh;
   overflow-x: hidden;
+  width: 70%;
 }
 .row-all-pokemons{
   overflow: auto;
@@ -195,6 +202,17 @@ $text-color : #40415E;
   text-transform: capitalize
 }
 
+.btn-menu{
+  height: 2rem;
+  width: 4rem;
+  color: $white-color;
+  padding: 3px;
+  font-size: 1rem;
+  border: none;
+  background: transparent;
+}
+
+
 .disable{
   background-color: rgba(242,244,255,.5);
 }
@@ -257,4 +275,28 @@ background-color: rgba(black, 0.75);
 }
 .capitalize-text{
   text-transform: capitalize
+}
+.mobile{
+  display: none;
+}
+.container-logo{
+  width: auto;
+}
+.menu-display{
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .container-user-pokemon{
+    width: 100%
+  }
+  .all-pokemon{
+    width: 100%
+  }
+  .mobile{
+    display: block;
+    text-align: center;
+    flex-direction: row;
+  }
+
 }

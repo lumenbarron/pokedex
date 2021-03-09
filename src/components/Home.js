@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
-// import axios from "axios";
 import CardPokemon from "./CardPokemons";
 import FullCardPokemon from "./FullCardPokemon";
 import iconSearch from "../Assets/Icons/Search.svg";
@@ -22,8 +21,6 @@ export default function Home() {
 
   const dispatch = useDispatch();
   const pokemons = useSelector((store) => store.pokemons);
-  // console.log(pokemons.results)
-  // console.log(pokemons.previous)
 
   //dispatch => getPokemonsAction => dispacth => type => return payload
   useEffect(() => {
@@ -64,7 +61,7 @@ export default function Home() {
   return (
     <>
       <Row className="container-search m-0 pb-5">
-        <Col lg={6}>
+        <Col lg={6} className="m-2">
           <button
             className={`btn-icon ${pokemons.previous ? "" : "disable"}`}
             disabled={pokemons.previous ? false : true}
