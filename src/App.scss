@@ -5,6 +5,14 @@ $orange-color: #F49D40;
 $lightblue-color: #ABC8FF;
 $pink-color: #C96A77;
 $brown-color: #AB6A00;
+$red-color: #E50044;
+$yellow-color : #F9BE00;
+$gray-color: #888780;
+$steel-color : #88BDA5;
+$ground-color : #B9BF9C;
+$bug-color : #659375;
+$dragon-color : #00B8EE;
+$dark-color : #3E4E57;
 $white-color : rgba(242,244,255,1);
 $text-color : #40415E;
 
@@ -99,12 +107,15 @@ $text-color : #40415E;
   height: 2rem;
   padding: 10px;
 }
-.btn-search{
+.btn-icon{
   @include btnColor( 3rem);
  background-color: $blue-color;
+ text-align: center;
+ border: none;
+}
+.btn-search{
  margin-right: 0rem;
  position: absolute;
- 
 }
 .img-search{
   padding: 5px;
@@ -116,6 +127,7 @@ $text-color : #40415E;
   padding: 2rem;
   overflow: scroll;
   height: 100vh;
+  overflow-x: hidden;
 }
 .row-all-pokemons{
   overflow: auto;
@@ -180,13 +192,11 @@ $text-color : #40415E;
   // background-color: $green-color;
   padding: 3px;
   font-size: 1rem;
-  // &-grass {
-  //   background-color: $green-color;
-  // }
-  
-  // &-normal{
-  //   background-color:$pink-color ;
-  // }
+  text-transform: capitalize
+}
+
+.disable{
+  background-color: rgba(242,244,255,.5);
 }
 
 .grass {
@@ -203,23 +213,48 @@ $text-color : #40415E;
 .fire{
   background-color: $orange-color;
 }
-
 .water{
   background-color: $blue-color;
 }
-
 .bug {
-  background-color: $brown-color;
+  background-color:$bug-color;
 }
 .flying{
   background-color: $lightblue-color;
 }
 .psychic{
-  background-color: red;
+  background-color: $red-color;
 }
 .electric{
-  background-color: yellow;
+  background-color: $yellow-color;
 }
-.none{
-  display: none;
+.fighting{
+  background-color: $brown-color;
+}
+.ground{
+background-color:  $ground-color;
+}
+.fairy{
+background: linear-gradient( 114.2deg,  rgba(121,194,243,1) 22.6%, rgba(255,180,239,1) 67.7% );;
+}
+.rock{
+background-color: $gray-color;
+}
+.steel{
+  background-color: $steel-color;
+}
+.ice{
+background-color: black;
+}
+.ghost{
+background-color: rgba(black, 0.75);
+}
+.dragon{
+  background-color: $dragon-color;
+}
+.dark{
+  background-color: $dark-color;
+}
+.capitalize-text{
+  text-transform: capitalize
 }

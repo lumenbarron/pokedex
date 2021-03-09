@@ -10,7 +10,7 @@ const CardPokemon = ({ id, image, name, type, type2, _callback }) => {
         className="title-card-pokemon"
         to={"/" + id}
       >
-        <h3>{name}</h3>
+        <h3 className="capitalize-text">{name}</h3>
       </Link>
       <p className="number-card-pokemon pb-4" >00{id}</p>
 
