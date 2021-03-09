@@ -31,7 +31,7 @@ function App() {
                   <button className="btn-menu img-btn-menu mt-2" onClick={() => openToggle()}><img src={iconMenu} alt="icon-Menu" /></button>
                   <img className="logo-pokemon"  alt="logo-pokemon" src={logoPokemon} />
                 </div>
-                {mobile ? <UserProfile /> : '' }
+                {mobile ? ''  :  <UserProfile /> }
               </div>
               <div className="all-pokemon">
                 <Route exact path="/" component={Home} />
