@@ -5,8 +5,8 @@ import iconLogout from "../Assets/Icons/Logout.svg";
 
 export default function UserProfile() {
   return (
-    <div className="user-pokemon">
-      <img className="logo-pokemon my-5" alt="logo-pokemon" src={logoPokemon} />
+    <div className="user-pokemon p-2">
+      <img className="logo-pokemon desktop my-5" alt="logo-pokemon" src={logoPokemon} />
       <img
         className="user-img-pokemon mb-4"
         alt="user-pokemon"

@@ -55,6 +55,7 @@ $text-color : #40415E;
 }
 .user-pokemon{
   @include flexDirection(column);
+
 }
 .logo-pokemon{
   width: auto;
@@ -91,7 +92,7 @@ $text-color : #40415E;
 
 .img-btn-logout{
   position: absolute;
-  left: 10%;
+  left: 2rem;
 }
 
 
@@ -291,12 +292,18 @@ background-color: rgba(black, 0.75);
     width: 100%
   }
   .all-pokemon{
-    width: 100%
+    width: 100%;
+    padding: 0;
   }
   .mobile{
     display: block;
     text-align: center;
     flex-direction: row;
   }
-
+  .desktop{
+    display: none;
+  }
+  .container-search-form{
+    @include flexJusttify(center);
+  }
 }
